@@ -1,0 +1,3 @@
+[submodule "viskit"]
+	path = viskit
+	url = https://github.com/vitchyr/viskit.git
