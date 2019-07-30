@@ -40,91 +40,13 @@ MAX_PATH_LENGTH_PER_DOMAIN = {
     'Pendulum': 200,
 }
 
-#### aws3
-## standard
-## cheetah : rollout 1, rep 20, pool 4e6, entropy 0.5
-## walker : ""
-
-## entropy 0.35
-## cheetah : entropy 0.35
-## walker : ""
-
-#### aws2 
-## 1-10 rollouts
-## cheetah : rollout 1-5, rep 20, pool 8e6, entropy 0.5, linear 1-5 (epochs 100-200) 
-## walker : ""
-
-## continued
-## walker : rep 20, entropy 0.5
-## walker : rep 30, entropy 0.5
-
-## TODO
-## 10 rep
-## cheetah : rollout 1, rep 10, pool 8e6, entropy 0.5 
-## walker : ""
-
-## gcp
-## 1 :
-## 2 :
-## 3 :
-## 4 : 10 rep walker
-
-## baselines
-## 1 : rollout length (1/5/full)
-## 2 : no ensembles
-## 3 : no model rollouts : aws.p2.8x.2/3 10/20/30
-
-
-## run cheetah, walker longer
-## rollout length on hopper (full)
-## no ensemble on walker
-## no ensemble on cheetah
-
-## aws2
-## long cheetah : entropy 0.5, rep 20, pool 4e6
-## cheetah : ensemble, 1000 freq, time 100
-## cheetah : no ensemble, 1000 freq, time 100
-## cheetah : ensemble, 250 freq, time 50
-## cheetah : ensemble, 1000 freq, time 100, 10 rep 
-
-## aws3
-## old cheetah (entropy 0.5, rollout 1, rep 20, pool 4e6)
-## old walker (...)
-## long walker : ensemble, 1000 freq, time 100 (rep 20, pool 2e6)
-## ablation hopper : 200-step rollouts
-
-## gcp3
-##
-##
-##
-##
-
-## gcp4
-## old walker (entropy 0.35, rep 10)
-## old cheetah (entropy 0.35, rep 10)
-## free
-## free
-
-## cheetah : rep 10, 1000 freq, time 100
- # long cheetah 
-## long cheetah
-## long walker
-
-## gcp4
-## walker : no ensemble
-##
-
-## aws1
-## no model : 30
-## no model : 10
-
 ALGORITHM_PARAMS_BASE = {
     'type': 'MBPO',
 
     'kwargs': {
         'epoch_length': 1000,
         'train_every_n_steps': 1,
-        'n_train_repeat': 10, #20,
+        'n_train_repeat': 20,
         'eval_render_mode': None,
         'eval_n_episodes': 1,
         'eval_deterministic': True,
@@ -132,12 +54,10 @@ ALGORITHM_PARAMS_BASE = {
         'discount': 0.99,
         'tau': 5e-3,
         'reward_scale': 1.0,
-        ####
         'model_reset_freq': 1000,
-        'model_train_freq': 250, # 250
-        # 'retain_model_epochs': 2,
-        'model_pool_size': 2e6,
-        'rollout_batch': 100e3, # 40e3
+        'model_train_freq': 250,
+        'retain_model_epochs': 2,
+        'rollout_batch': 100e3,
         'rollout_length': 1,
         'deterministic': False,
         'num_networks': 7,
@@ -145,51 +65,10 @@ ALGORITHM_PARAMS_BASE = {
         'real_ratio': 0.05,
         'entropy_mult': 0.5,
         'max_model_t': 1e10,
-        # 'max_dev': 0.25, 
-        # 'marker': 'early-stop_10rep_stochastic',
-        'rollout_length_params': [20, 150, 1, 1], ## epoch, loss, length
+        'rollout_length_params': [20, 150, 1, 1],
         'marker': 'dump',
     }
 }
-
-####
-## WARNING : MVE-SAC
-####
-# ALGORITHM_PARAMS_BASE = {
-#     'type': 'MVE',
-
-#     'kwargs': {
-#         'epoch_length': 1000,
-#         'train_every_n_steps': 1,
-#         'n_train_repeat': 1, #20,
-#         'eval_render_mode': None,
-#         'eval_n_episodes': 1,
-#         'eval_deterministic': True,
-
-#         'discount': 0.99,
-#         'tau': 5e-3,
-#         'reward_scale': 1.0,
-#         ####
-#         # 'model_reset_freq': 1000,
-#         'model_train_freq': 250, # 250
-#         # 'retain_model_epochs': 2,
-#         # 'model_pool_size': 2e6,
-#         # 'rollout_batch': 100e3, # 40e3
-#         # 'rollout_length': 5,
-#         'deterministic': False,
-#         'num_networks': 7,
-#         'num_elites': 5,
-#         # 'real_ratio': 0.05,
-#         'entropy_mult': 1.0,
-#         'max_model_t': 1e10,
-#         'H': 5,
-#         # 'max_dev': 0.25, 
-#         # 'marker': 'early-stop_10rep_stochastic',
-#         # 'rollout_length_params': [2000, 15000, 5, 25], ## epoch, loss, length
-#         'marker': 'dump',
-#     }
-# }
-
 
 ALGORITHM_PARAMS_ADDITIONAL = {
     'SAC': {

@@ -72,18 +72,6 @@ def add_command_line_args_to_variant_spec(variant_spec, command_line_args):
 
 
 def generate_experiment(trainable_class, variant_spec, command_line_args):
-    # local_dir = os.path.join(
-    #     '~/ray_results',
-    #     command_line_args.universe,
-    #     command_line_args.domain,
-    #     command_line_args.task)
-    # local_dir = os.path.join(
-    #     '~/persistent/berkeley/tf_mbpo/logs/',
-    #     command_line_args.domain)
-    # import pdb
-    # pdb.set_trace()
-
-    # local_dir = '~/ray_formatted/{}/'.format(command_line_args.domain)
     params = variant_spec.get('algorithm_params')
     local_dir = os.path.join(params.get('log_dir'), params.get('domain'))
     resources_per_trial = _normalize_trial_resources(
@@ -93,9 +81,6 @@ def generate_experiment(trainable_class, variant_spec, command_line_args):
         command_line_args.trial_extra_cpus,
         command_line_args.trial_extra_gpus)
 
-    # datetime_prefix = datetimestamp()
-    # experiment_id = '-'.join((datetime_prefix, command_line_args.exp_name))
-    # experiment_id = str(command_line_args.exp_name)
     experiment_id = params.get('exp_name')
 
     variant_spec = add_command_line_args_to_variant_spec(

@@ -53,6 +53,7 @@ corresponds to a model rollout length linearly increasing from 1 to 5 over epoch
 
 If you want to speed up training in terms of wall clock time (but possibly make the runs less sample-efficient), you can set a timeout for model training ([`max_model_t`](examples/config/halfcheetah/0.py#L30), in seconds) or train the model less frequently (every [`model_train_freq`](examples/config/halfcheetah/0.py#L22) steps).
 
+**Note:** This repo contains ongoing research. Minor differences between this code and the paper will be updated in v2.
 
 ## Reference
 If you find this code useful in an academic setting, please cite:
