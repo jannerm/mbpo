@@ -221,7 +221,6 @@ class MBPO(RLAlgorithm):
                         self._epoch, self._model_train_freq, self._timestep, self._total_timestep, self._train_steps_this_epoch, self._num_train_steps)
                     )
 
-                    # max_t = self._max_model_t if self._epoch > 100 else 1e10
                     model_train_metrics = self._train_model(batch_size=256, max_epochs=None, holdout_ratio=0.2, max_t=self._max_model_t)
                     model_metrics.update(model_train_metrics)
                     gt.stamp('epoch_train_model')
