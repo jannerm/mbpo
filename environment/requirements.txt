@@ -48,7 +48,7 @@ lockfile==0.12.2
 Markdown==3.0.1
 matplotlib==3.0.2
 more-itertools==4.3.0
-mujoco-py==1.50.1.68
+git+https://github.com/hartikainen/mujoco-py.git@435d2143abe04fe4648c6c0c1b848bf1fc06b73b
 git+https://github.com/vitchyr/multiworld.git@d76b3dae2e8cbca02924f93d6cc0239c552f6408
 networkx==2.2
 numpy==1.15.4
