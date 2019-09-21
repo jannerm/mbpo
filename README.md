@@ -26,8 +26,7 @@ pip install -e .
 Configuration files can be found in `examples/config/`. 
 
 ```
-mbpo run_local examples.development --config=examples.config.halfcheetah.0 \
-	--checkpoint-frequency=1000 --gpus=1 --trial-gpus=1
+mbpo run_local examples.development --config=examples.config.halfcheetah.0 --gpus=1 --trial-gpus=1
 ```
 
 Currently only running locally is supported.
