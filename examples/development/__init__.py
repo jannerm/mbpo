@@ -28,8 +28,6 @@ def get_variant_spec(command_line_args, *args, **kwargs):
     from .base import get_variant_spec
     import importlib
     params = get_params_from_file(command_line_args.config)
-    # import pdb	
-    # pdb.set_trace()
     variant_spec = get_variant_spec(command_line_args, *args, params, **kwargs)
     return variant_spec
 
