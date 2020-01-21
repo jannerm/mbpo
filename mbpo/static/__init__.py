@@ -19,7 +19,7 @@ files = filter(lambda x: '__' not in x, files)
 files = map(lambda x: x.replace('.py', ''), files)
 
 ## {env: StaticFns, ... }
-static_fns = {file: import_fns(cwd, file) for file in files}
+static_fns = {file.replace('_', ''): import_fns(cwd, file) for file in files}
 
 sys.modules[__name__] = static_fns
 

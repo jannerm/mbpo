@@ -7,7 +7,13 @@ def mass_center(model, sim):
     xpos = sim.data.xipos
     return (np.sum(mass * xpos, 0) / np.sum(mass))[0]
 
-class HumanoidEnv(mujoco_env.MujocoEnv, utils.EzPickle):
+class HumanoidTruncatedObsEnv(mujoco_env.MujocoEnv, utils.EzPickle):
+    """
+        COM inertia (cinert), COM velocity (cvel), actuator forces (qfrc_actuator), 
+        and external forces (cfrc_ext) are removed from the observation.
+        Otherwise identical to Humanoid-v2 from
+        https://github.com/openai/gym/blob/master/gym/envs/mujoco/humanoid.py
+    """
     def __init__(self):
         mujoco_env.MujocoEnv.__init__(self, 'humanoid.xml', 5)
         utils.EzPickle.__init__(self)

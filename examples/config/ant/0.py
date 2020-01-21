@@ -1,7 +1,7 @@
 params = {
     'type': 'MBPO',
     'universe': 'gym',
-    'domain': 'Ant',
+    'domain': 'AntTruncatedObs', ## mbpo/env/ant.py
     'task': 'v2',
 
     'log_dir': '~/ray_mbpo/',

@@ -97,19 +97,11 @@ ALGORITHM_PARAMS_ADDITIONAL = {
 DEFAULT_NUM_EPOCHS = 200
 
 NUM_EPOCHS_PER_DOMAIN = {
-    'Swimmer': int(3e3),
     'Hopper': int(1e3),
     'HalfCheetah': int(3e3),
     'Walker2d': int(3e3),
     'Ant': int(3e3),
     'Humanoid': int(1e4),
-    'Pusher2d': int(2e3),
-    'HandManipulatePen': int(1e4),
-    'HandManipulateEgg': int(1e4),
-    'HandManipulateBlock': int(1e4),
-    'HandReach': int(1e4),
-    'Point2DEnv': int(200),
-    'Reacher': int(200),
     'Pendulum': 10,
 }
 
@@ -129,62 +121,6 @@ ALGORITHM_PARAMS_PER_DOMAIN = {
 }
 
 ENVIRONMENT_PARAMS = {
-    'Swimmer': {  # 2 DoF
-    },
-    'Hopper': {  # 3 DoF
-    },
-    'HalfCheetah': {  # 6 DoF
-    },
-    'Walker2d': {  # 6 DoF
-    },
-    'Ant': {  # 8 DoF
-        'Parameterizable-v3': {
-            'healthy_reward': 0.0,
-            'healthy_z_range': (-np.inf, np.inf),
-            'exclude_current_positions_from_observation': False,
-        }
-    },
-    'Humanoid': {  # 17 DoF
-        'Parameterizable-v3': {
-            'healthy_reward': 0.0,
-            'healthy_z_range': (-np.inf, np.inf),
-            'exclude_current_positions_from_observation': False,
-        }
-    },
-    'Pusher2d': {  # 3 DoF
-        'Default-v3': {
-            'arm_object_distance_cost_coeff': 0.0,
-            'goal_object_distance_cost_coeff': 1.0,
-            'goal': (0, -1),
-        },
-        'DefaultReach-v0': {
-            'arm_goal_distance_cost_coeff': 1.0,
-            'arm_object_distance_cost_coeff': 0.0,
-        },
-        'ImageDefault-v0': {
-            'image_shape': (32, 32, 3),
-            'arm_object_distance_cost_coeff': 0.0,
-            'goal_object_distance_cost_coeff': 3.0,
-        },
-        'ImageReach-v0': {
-            'image_shape': (32, 32, 3),
-            'arm_goal_distance_cost_coeff': 1.0,
-            'arm_object_distance_cost_coeff': 0.0,
-        },
-        'BlindReach-v0': {
-            'image_shape': (32, 32, 3),
-            'arm_goal_distance_cost_coeff': 1.0,
-            'arm_object_distance_cost_coeff': 0.0,
-        }
-    },
-    'Point2DEnv': {
-        'Default-v0': {
-            'observation_keys': ('observation', 'desired_goal'),
-        },
-        'Wall-v0': {
-            'observation_keys': ('observation', 'desired_goal'),
-        },
-    }
 }
 
 NUM_CHECKPOINTS = 10

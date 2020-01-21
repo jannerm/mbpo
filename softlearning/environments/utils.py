@@ -3,7 +3,6 @@ from .adapters.gym_adapter import (
     GymAdapter,
 )
 
-import mbpo.env as env_overwrite
 import pdb
 
 ENVIRONMENTS = {
@@ -16,12 +15,7 @@ ADAPTERS = {
 
 
 def get_environment(universe, domain, task, environment_params):
-    if domain in env_overwrite:
-        print('[ environments/utils ] WARNING: Using overwritten {} environment'.format(domain))
-        env = env_overwrite[domain]()
-        env = ADAPTERS[universe](None, None, env=env)
-    else:
-        env = ADAPTERS[universe](domain, task, **environment_params)
+    env = ADAPTERS[universe](domain, task, **environment_params)
     return env
 
 

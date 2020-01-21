@@ -1,7 +1,7 @@
 params = {
     'type': 'MBPO',
     'universe': 'gym',
-    'domain': 'Humanoid',
+    'domain': 'HumanoidTruncatedObs', ## mbpo/env/humanoid.py
     'task': 'v2',
 
     'log_dir': '~/ray_mbpo/',

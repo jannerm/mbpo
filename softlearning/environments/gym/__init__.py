@@ -7,6 +7,7 @@ implementing a mujoco env, you would implement it under gym.mujoco submodule.
 
 import gym
 
+from mbpo.env import register_mbpo_environments
 
 CUSTOM_GYM_ENVIRONMENTS_PATH = __package__
 MUJOCO_ENVIRONMENTS_PATH = f'{CUSTOM_GYM_ENVIRONMENTS_PATH}.mujoco'
@@ -143,9 +144,11 @@ def register_environments():
     registered_mujoco_environments = register_mujoco_environments()
     registered_general_environments = register_general_environments()
     registered_multiworld_environments = register_multiworld_environments()
+    registered_mbpo_environments = register_mbpo_environments()
 
     return (
         *registered_mujoco_environments,
         *registered_general_environments,
         *registered_multiworld_environments,
+        *registered_mbpo_environments,
     )

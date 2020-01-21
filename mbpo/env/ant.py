@@ -2,7 +2,12 @@ import numpy as np
 from gym import utils
 from gym.envs.mujoco import mujoco_env
 
-class AntEnv(mujoco_env.MujocoEnv, utils.EzPickle):
+class AntTruncatedObsEnv(mujoco_env.MujocoEnv, utils.EzPickle):
+    """
+        External forces (sim.data.cfrc_ext) are removed from the observation.
+        Otherwise identical to Ant-v2 from
+        https://github.com/openai/gym/blob/master/gym/envs/mujoco/ant.py
+    """
     def __init__(self):
         mujoco_env.MujocoEnv.__init__(self, 'ant.xml', 5)
         utils.EzPickle.__init__(self)

@@ -1,8 +1,22 @@
-import sys
+import gym
 
-from .ant import AntEnv
-from .humanoid import HumanoidEnv
+MBPO_ENVIRONMENT_SPECS = (
+	{
+        'id': 'AntTruncatedObs-v2',
+        'entry_point': (f'mbpo.env.ant:AntTruncatedObsEnv'),
+    },
+	{
+        'id': 'HumanoidTruncatedObs-v2',
+        'entry_point': (f'mbpo.env.humanoid:HumanoidTruncatedObsEnv'),
+    },
+)
 
-env_overwrite = {'Ant': AntEnv, 'Humanoid': HumanoidEnv}
+def register_mbpo_environments():
+    for mbpo_environment in MBPO_ENVIRONMENT_SPECS:
+        gym.register(**mbpo_environment)
 
-sys.modules[__name__] = env_overwrite
+    gym_ids = tuple(
+        environment_spec['id']
+        for environment_spec in  MBPO_ENVIRONMENT_SPECS)
+
+    return gym_ids
