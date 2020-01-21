@@ -73,7 +73,9 @@ def add_command_line_args_to_variant_spec(variant_spec, command_line_args):
 
 def generate_experiment(trainable_class, variant_spec, command_line_args):
     params = variant_spec.get('algorithm_params')
-    local_dir = os.path.join(params.get('log_dir'), params.get('domain'))
+    local_dir = os.path.join(
+        command_line_args.log_dir or params.get('log_dir'),
+        params.get('domain'))
     resources_per_trial = _normalize_trial_resources(
         command_line_args.resources_per_trial,
         command_line_args.trial_cpus,

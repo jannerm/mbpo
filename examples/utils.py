@@ -236,6 +236,11 @@ def get_parser(allow_policy_list=False):
     #     '--task', type=str, choices=AVAILABLE_TASKS, default=DEFAULT_TASK)
 
     parser.add_argument(
+        '--log-dir',
+        type=str,
+        default=None,
+        )
+    parser.add_argument(
         '--checkpoint-replay-pool',
         type=lambda x: bool(strtobool(x)),
         default=None,
