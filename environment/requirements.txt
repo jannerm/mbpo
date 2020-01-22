@@ -48,7 +48,7 @@ lockfile==0.12.2
 Markdown==3.0.1
 matplotlib==3.0.2
 more-itertools==4.3.0
-git+https://github.com/hartikainen/mujoco-py.git@435d2143abe04fe4648c6c0c1b848bf1fc06b73b
+git+https://github.com/jannerm/mujoco-py.git@v1.50.1.68
 git+https://github.com/vitchyr/multiworld.git@d76b3dae2e8cbca02924f93d6cc0239c552f6408
 networkx==2.2
 numpy==1.15.4
@@ -77,7 +77,6 @@ ray[rllib,debug]==0.6.4
 redis==3.0.1
 requests==2.20.1
 rsa==3.4.2
-ruamel-yaml==0.15.46
 s3transfer==0.1.13
 scikit-image==0.14.2
 scikit-learn==0.20.1
