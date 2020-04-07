@@ -23,7 +23,7 @@ pip install -e .
 ```
 
 ## Usage
-Configuration files can be found in `examples/config/`. 
+Configuration files can be found in [`examples/config/`](examples/config).
 
 ```
 mbpo run_local examples.development --config=examples.config.halfcheetah.0 --gpus=1 --trial-gpus=1
@@ -51,8 +51,6 @@ The rollout length schedule is defined by a length-4 list in a [config file](exa
 corresponds to a model rollout length linearly increasing from 1 to 5 over epochs 20 to 100. 
 
 If you want to speed up training in terms of wall clock time (but possibly make the runs less sample-efficient), you can set a timeout for model training ([`max_model_t`](examples/config/halfcheetah/0.py#L30), in seconds) or train the model less frequently (every [`model_train_freq`](examples/config/halfcheetah/0.py#L22) steps).
-
-**Note:** This repo contains ongoing research. Minor differences between this code and the paper will be updated in v2.
 
 ## Comparing to MBPO
 If you would like to compare to MBPO but do not have the resources to re-run all experiments, the learning curves found in Figure 2 of the paper (plus on the Humanoid environment) are available in this [shared folder](https://drive.google.com/drive/folders/1matvC7hPi5al9-5S2uL4GuXfT5rzO9qU?usp=sharing). See `plot.py` for an example of how to read the pickle files with the results.
