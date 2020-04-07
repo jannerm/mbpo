@@ -128,13 +128,14 @@ NUM_CHECKPOINTS = 10
 
 def get_variant_spec_base(universe, domain, task, policy, algorithm, env_params):
     algorithm_params = deep_update(
-        env_params,
-        ALGORITHM_PARAMS_PER_DOMAIN.get(domain, {})
+        ALGORITHM_PARAMS_PER_DOMAIN.get(domain, {}),
+        ALGORITHM_PARAMS_ADDITIONAL.get(algorithm, {})
     )
     algorithm_params = deep_update(
         algorithm_params,
-        ALGORITHM_PARAMS_ADDITIONAL.get(algorithm, {})
+        env_params
     )
+
     variant_spec = {
         'git_sha': get_git_rev(),
 
