@@ -28,7 +28,7 @@ params = {
         'real_ratio': 0.05,
         'target_entropy': -2,
         'max_model_t': None,
-        'rollout_schedule': [20, 300, 1, 20],
+        'rollout_schedule': [20, 300, 1, 25],
         'hidden_dim': 400,
     }
 }
