@@ -58,10 +58,10 @@ If you would like to compare to MBPO but do not have the resources to re-run all
 ## Reference
 
 ```
-@article{janner2019mbpo,
+@inproceedings{janner2019mbpo,
   author = {Michael Janner and Justin Fu and Marvin Zhang and Sergey Levine},
   title = {When to Trust Your Model: Model-Based Policy Optimization},
-  journal = {arXiv preprint arXiv:1906.08253},
+  booktitle = {Advances in Neural Information Processing Systems},
   year = {2019}
 }
 ```
