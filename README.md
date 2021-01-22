@@ -56,7 +56,6 @@ If you want to speed up training in terms of wall clock time (but possibly make 
 If you would like to compare to MBPO but do not have the resources to re-run all experiments, the learning curves found in Figure 2 of the paper (plus on the Humanoid environment) are available in this [shared folder](https://drive.google.com/drive/folders/1matvC7hPi5al9-5S2uL4GuXfT5rzO9qU?usp=sharing). See `plot.py` for an example of how to read the pickle files with the results.
 
 ## Reference
-If you find this code useful in an academic setting, please cite:
 
 ```
 @article{janner2019mbpo,
