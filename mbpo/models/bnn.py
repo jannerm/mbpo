@@ -232,13 +232,10 @@ class BNN:
 
     def _set_state(self):
         keys = ['weights', 'biases']
-        ops = []
         num_layers = len(self.layers)
         for layer in range(num_layers):
-            # net_state = self._state[i]
             params = {key: np.stack([self._state[net][layer][key] for net in range(self.num_nets)]) for key in keys}
-            ops.extend(self.layers[layer].set_model_vars(params))
-        self.sess.run(ops)
+            self.layers[layer].set_model_vars(params, self.sess)
 
     def _save_best(self, epoch, holdout_losses):
         updated = False

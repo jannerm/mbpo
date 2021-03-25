@@ -57,9 +57,9 @@ class FC:
         bias = biases[idx].copy()
         return {'weights': weight, 'biases': bias}
 
-    def set_model_vars(self, variables):
-        ops = [getattr(self, attr).assign(var) for attr, var in variables.items()]
-        return ops
+    def set_model_vars(self, params, sess):
+        for attr, param in params.items():
+            getattr(self, attr).load(param, sess)
 
     def reset(self, sess):
         sess.run(self.weights.initializer)
